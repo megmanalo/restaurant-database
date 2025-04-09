@@ -1,0 +1,38 @@
+{
+    "P.O.S. SYSTEM": {
+        "Paid Tabs": [{
+            "totalBill": 1120,
+            "name": "Meg",
+            "orders": [{
+                "itemName": "FocacciaBread&Dip",
+                "price": 1000
+            }],
+            "tip": 0,
+            "partySize": 4,
+            "tabStatus": true,
+            "taxStatus": true
+        }],
+        "Unpaid Tabs": [{
+            "totalBill": 1000,
+            "name": "Moira",
+            "orders": [{
+                "itemName": "FocacciaBread&Dip",
+                "price": 1000
+            }],
+            "tip": 0,
+            "partySize": 3,
+            "tabStatus": false,
+            "taxStatus": false
+        }]
+    },
+    "MENU": {
+        "Mains": [],
+        "Appetizers": [{
+            "itemName": "FocacciaBread&Dip",
+            "price": 1000
+        }],
+        "Drinks": [],
+        "Desserts": [],
+        "Sides": []
+    }
+}

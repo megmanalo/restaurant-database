@@ -1,0 +1,28 @@
+{
+    "P.O.S. SYSTEM": {
+        "Paid Tabs": [],
+        "Unpaid Tabs": []
+    },
+    "MENU": {
+        "Mains": [{
+            "itemName": "SpinachRavioli",
+            "price": 2500
+        }],
+        "Appetizers": [{
+            "itemName": "FocacciaBread&Dip",
+            "price": 1000
+        }],
+        "Drinks": [{
+            "itemName": "Mojito",
+            "price": 700
+        }],
+        "Desserts": [{
+            "itemName": "ChocolateLavaCake",
+            "price": 1200
+        }],
+        "Sides": [{
+            "itemName": "GarlicFries",
+            "price": 800
+        }]
+    }
+}
