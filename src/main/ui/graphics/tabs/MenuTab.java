@@ -20,6 +20,9 @@ public class MenuTab extends Tab {
     private JTextField newAppetizerName;
     private DefaultListModel<MenuItem> model;
 
+    /*
+     * Creates the menu tab of the application
+     */
     public MenuTab(RestaurantDatabase controller) {
         super(controller);
 
@@ -32,7 +35,9 @@ public class MenuTab extends Tab {
         add(appetizersPanel);
     }
 
-    // creates first component of appetizers panel
+    /*
+     * EFFECTS: creates first component of appetizers panel
+     */
     private void createFirstComponent() {
         appetizersFirstPanel = new JPanel();
         appetizersFirstPanel.setLayout(new BoxLayout(appetizersFirstPanel, BoxLayout.PAGE_AXIS));
@@ -43,7 +48,9 @@ public class MenuTab extends Tab {
         appetizersPanel.add(appetizersFirstPanel);
     }
     
-    // creates first row, label, for appetizers panel
+    /*
+     * EFFECTS: creates first row, label, for appetizers panel
+     */
     private void createLabelPanel() {
         JPanel labelPanel = new JPanel();
         labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.LINE_AXIS));
@@ -64,7 +71,9 @@ public class MenuTab extends Tab {
         appetizersFirstPanel.add(labelPanel);
     }
 
-    // creates interactive section for appetizers panel
+    /*
+     * EFFECTS: creates interactive section for appetizers panel
+     */
     private void createInteractionPanel() {
         interactivePanel = new JPanel();
         interactivePanel.setLayout(new BoxLayout(interactivePanel, BoxLayout.LINE_AXIS));
@@ -76,6 +85,9 @@ public class MenuTab extends Tab {
         appetizersFirstPanel.add(interactivePanel);
     }
 
+    /*
+     * EFFECTS: adds input text fields to interaction panel
+     */
     private void createInputPanel() {
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.PAGE_AXIS));
@@ -103,6 +115,9 @@ public class MenuTab extends Tab {
         interactivePanel.add(inputPanel);
     }
 
+    /*
+     * EFFECTS: adds buttons to interaction panel
+     */
     private void createButtonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.PAGE_AXIS));
@@ -126,6 +141,9 @@ public class MenuTab extends Tab {
         interactivePanel.add(buttonPanel);
     }
 
+    /*
+     * EFFECTS: creates second component of appetizers panel
+     */
     private void createSecondComponent() {
         appetizersSecondPanel = new JPanel();
         appetizersSecondPanel.setLayout(new BoxLayout(appetizersSecondPanel, BoxLayout.PAGE_AXIS));
@@ -135,6 +153,9 @@ public class MenuTab extends Tab {
         appetizersPanel.add(appetizersSecondPanel);
     }
 
+    /*
+     * EFFECTS: creates list display of menu appetizers
+     */
     private void createListDisplay() {
         splitPane = new JSplitPane();
         splitPane.setPreferredSize(new Dimension(250, 75));
@@ -146,6 +167,9 @@ public class MenuTab extends Tab {
         appetizersSecondPanel.add(splitPane);
     }
 
+    /*
+     * EFFECTS: adds list of appetizers to split pane
+     */
     private void createListPanel() {
         model = new DefaultListModel<>();
         list = new JList<>();
@@ -161,6 +185,9 @@ public class MenuTab extends Tab {
         splitPane.setLeftComponent(new JScrollPane(list));
     }
 
+    /*
+     * EFFECTS: adds display of appetizer prices to split pane
+     */
     private void createPricePanel() {
         JPanel pricePanel = new JPanel();
         JLabel priceDisplay = new JLabel();
