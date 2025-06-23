@@ -8,7 +8,6 @@ import model.Event;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.util.Collection;
 
 import ui.graphics.tabs.*;
 import ui.RestaurantDatabase;

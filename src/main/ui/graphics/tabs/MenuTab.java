@@ -31,11 +31,7 @@ public abstract class MenuTab extends Tab {
         sectionPanel = new JPanel();
         sectionPanel.setLayout(new BoxLayout(sectionPanel, BoxLayout.LINE_AXIS));
 
-        // TO-DO: make super function per section of menu tab
-        // createFirstComponent(label, item);
-        // createSecondComponent();
-
-        // add(sectionPanel);
+        // additional functions added per dependent class 
     }
 
     /*
@@ -179,14 +175,7 @@ public abstract class MenuTab extends Tab {
         list.setModel(model);
         list.setVisibleRowCount(-1);
 
-        // TO-DO: make abstract function per section of menu tab
-        // for (MenuItem item : database.getMenu().getAppetizers()) {
-        //     if (!model.contains(item)) {
-        //         model.addElement(item);
-        //     }
-        // }
-
-        // splitPane.setLeftComponent(new JScrollPane(list));
+        // additional functions added per dependent class
     }
 
     /*
@@ -223,12 +212,7 @@ public abstract class MenuTab extends Tab {
             price = -1;
         }
 
-        // TO-DO: make abstract function per section of menu tab
-        // if (!database.getMenu().getAppetizers().contains(newItem)) {
-        //     if (price >= 0) {
-        //         database.getMenu().addItem(database.getMenu().getAppetizers(), newItem);
-        //     }
-        // }
+        // additional functions added per dependent class
     }
 
     /*
@@ -236,11 +220,7 @@ public abstract class MenuTab extends Tab {
      *          of menu items in the database
      */
     abstract void deleteMenuItem();
-    // {
-    //     // TO-DO: make abstract function per section of menu tab
-    //     // database.getMenu().removeItem(database.getMenu().getAppetizers(), list.getSelectedValue());
-    //     // model.removeElementAt(list.getSelectedIndex());
-    // }
+    // additional functions added per dependent class
 
     /*
      * EFFECTS: assigns functions per button
