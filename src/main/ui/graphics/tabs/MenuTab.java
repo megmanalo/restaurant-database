@@ -9,16 +9,18 @@ import javax.swing.*;
 import model.MenuItem;
 import ui.RestaurantDatabase;
 
-public class MenuTab extends Tab {
-    private JPanel appetizersPanel;
-    private JPanel appetizersFirstPanel;
-    private JPanel interactivePanel;
-    private JPanel appetizersSecondPanel;
-    private JSplitPane splitPane;
-    private JList<MenuItem> list;
-    private JTextField newAppetizerPrice;
-    private JTextField newAppetizerName;
-    private DefaultListModel<MenuItem> model;
+public abstract class MenuTab extends Tab {
+    protected JPanel sectionPanel;
+    protected JPanel sectionFirstPanel;
+    protected JPanel interactivePanel;
+    protected JPanel sectionSecondPanel;
+    protected JSplitPane splitPane;
+    protected JList<MenuItem> list;
+    protected JTextField newMenuItemPrice;
+    protected JTextField newMenuItemName;
+    protected DefaultListModel<MenuItem> model;
+    protected int price;
+    protected MenuItem newItem;
 
     /*
      * Creates the menu tab of the application
@@ -26,38 +28,39 @@ public class MenuTab extends Tab {
     public MenuTab(RestaurantDatabase controller) {
         super(controller);
 
-        appetizersPanel = new JPanel();
-        appetizersPanel.setLayout(new BoxLayout(appetizersPanel, BoxLayout.LINE_AXIS));
+        sectionPanel = new JPanel();
+        sectionPanel.setLayout(new BoxLayout(sectionPanel, BoxLayout.LINE_AXIS));
 
-        createFirstComponent();
-        createSecondComponent();
+        // TO-DO: make super function per section of menu tab
+        // createFirstComponent(label, item);
+        // createSecondComponent();
 
-        add(appetizersPanel);
+        // add(sectionPanel);
     }
 
     /*
-     * EFFECTS: creates first component of appetizers panel
+     * EFFECTS: creates first component of section panel
      */
-    private void createFirstComponent() {
-        appetizersFirstPanel = new JPanel();
-        appetizersFirstPanel.setLayout(new BoxLayout(appetizersFirstPanel, BoxLayout.PAGE_AXIS));
+    protected void createFirstComponent(String label, String item) {
+        sectionFirstPanel = new JPanel();
+        sectionFirstPanel.setLayout(new BoxLayout(sectionFirstPanel, BoxLayout.PAGE_AXIS));
 
-        createLabelPanel();
-        createInteractionPanel();
+        createLabelPanel(label);
+        createInteractionPanel(item);
 
-        appetizersPanel.add(appetizersFirstPanel);
+        sectionPanel.add(sectionFirstPanel);
     }
     
     /*
-     * EFFECTS: creates first row, label, for appetizers panel
+     * EFFECTS: creates first row, label, for section panel
      */
-    private void createLabelPanel() {
+    protected void createLabelPanel(String label) {
         JPanel labelPanel = new JPanel();
         labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.LINE_AXIS));
         labelPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JLabel appetizersLabel = new JLabel("APPETIZERS");
-        appetizersLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel sectionLabel = new JLabel(label);
+        sectionLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JButton refreshBtn = new JButton("Refresh");
         refreshBtn.setActionCommand("Load");
@@ -65,52 +68,52 @@ public class MenuTab extends Tab {
         refreshBtn.setLayout(new BoxLayout(refreshBtn, BoxLayout.LINE_AXIS));
         refreshBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        labelPanel.add(appetizersLabel);
+        labelPanel.add(sectionLabel);
         labelPanel.add(refreshBtn);
 
-        appetizersFirstPanel.add(labelPanel);
+        sectionFirstPanel.add(labelPanel);
     }
 
     /*
-     * EFFECTS: creates interactive section for appetizers panel
+     * EFFECTS: creates interactive section for section panel
      */
-    private void createInteractionPanel() {
+    protected void createInteractionPanel(String item) {
         interactivePanel = new JPanel();
         interactivePanel.setLayout(new BoxLayout(interactivePanel, BoxLayout.LINE_AXIS));
         interactivePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         createInputPanel();
-        createButtonPanel();
+        createButtonPanel(item);
 
-        appetizersFirstPanel.add(interactivePanel);
+        sectionFirstPanel.add(interactivePanel);
     }
 
     /*
      * EFFECTS: adds input text fields to interaction panel
      */
-    private void createInputPanel() {
+    protected void createInputPanel() {
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.PAGE_AXIS));
         inputPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JPanel newAppetizerNamePanel = new JPanel();
+        JPanel newMenuItemNamePanel = new JPanel();
         JLabel newNameLabel = new JLabel("New item name: ");
-        newAppetizerName = new JTextField(10);
-        newAppetizerNamePanel.add(newNameLabel);
-        newAppetizerNamePanel.add(newAppetizerName);
-        newAppetizerNamePanel.setLayout(new BoxLayout(newAppetizerNamePanel, BoxLayout.LINE_AXIS));
-        newAppetizerNamePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        newMenuItemName = new JTextField(10);
+        newMenuItemNamePanel.add(newNameLabel);
+        newMenuItemNamePanel.add(newMenuItemName);
+        newMenuItemNamePanel.setLayout(new BoxLayout(newMenuItemNamePanel, BoxLayout.LINE_AXIS));
+        newMenuItemNamePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JPanel newAppetizerPricePanel = new JPanel();
+        JPanel newMenuItemPricePanel = new JPanel();
         JLabel newPriceLabel = new JLabel("New item price (in cents): ");
-        newAppetizerPrice = new JTextField(10);
-        newAppetizerPricePanel.add(newPriceLabel);
-        newAppetizerPricePanel.add(newAppetizerPrice);
-        newAppetizerPricePanel.setLayout(new BoxLayout(newAppetizerPricePanel, BoxLayout.LINE_AXIS));
-        newAppetizerPricePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        newMenuItemPrice = new JTextField(10);
+        newMenuItemPricePanel.add(newPriceLabel);
+        newMenuItemPricePanel.add(newMenuItemPrice);
+        newMenuItemPricePanel.setLayout(new BoxLayout(newMenuItemPricePanel, BoxLayout.LINE_AXIS));
+        newMenuItemPricePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        inputPanel.add(newAppetizerNamePanel);
-        inputPanel.add(newAppetizerPricePanel);
+        inputPanel.add(newMenuItemNamePanel);
+        inputPanel.add(newMenuItemPricePanel);
 
         interactivePanel.add(inputPanel);
     }
@@ -118,45 +121,45 @@ public class MenuTab extends Tab {
     /*
      * EFFECTS: adds buttons to interaction panel
      */
-    private void createButtonPanel() {
+    protected void createButtonPanel(String item) {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.PAGE_AXIS));
         buttonPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JButton saveAppetizerBtn = new JButton("Make New Appetizer");
-        saveAppetizerBtn.setActionCommand("Save");
-        saveAppetizerBtn.addActionListener(this);
-        saveAppetizerBtn.setLayout(new BoxLayout(saveAppetizerBtn, BoxLayout.LINE_AXIS));
-        saveAppetizerBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JButton saveMenuItemBtn = new JButton("Make New " + item);
+        saveMenuItemBtn.setActionCommand("Save");
+        saveMenuItemBtn.addActionListener(this);
+        saveMenuItemBtn.setLayout(new BoxLayout(saveMenuItemBtn, BoxLayout.LINE_AXIS));
+        saveMenuItemBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JButton deleteAppetizerBtn = new JButton("Delete Selected Item");
-        deleteAppetizerBtn.setActionCommand("Delete");
-        deleteAppetizerBtn.addActionListener(this);
-        deleteAppetizerBtn.setLayout(new BoxLayout(deleteAppetizerBtn, BoxLayout.LINE_AXIS));
-        deleteAppetizerBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JButton deleteMenuItemBtn = new JButton("Delete Selected Item");
+        deleteMenuItemBtn.setActionCommand("Delete");
+        deleteMenuItemBtn.addActionListener(this);
+        deleteMenuItemBtn.setLayout(new BoxLayout(deleteMenuItemBtn, BoxLayout.LINE_AXIS));
+        deleteMenuItemBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        buttonPanel.add(saveAppetizerBtn);
-        buttonPanel.add(deleteAppetizerBtn);
+        buttonPanel.add(saveMenuItemBtn);
+        buttonPanel.add(deleteMenuItemBtn);
 
         interactivePanel.add(buttonPanel);
     }
 
     /*
-     * EFFECTS: creates second component of appetizers panel
+     * EFFECTS: creates second component of section panel
      */
-    private void createSecondComponent() {
-        appetizersSecondPanel = new JPanel();
-        appetizersSecondPanel.setLayout(new BoxLayout(appetizersSecondPanel, BoxLayout.PAGE_AXIS));
+    protected void createSecondComponent() {
+        sectionSecondPanel = new JPanel();
+        sectionSecondPanel.setLayout(new BoxLayout(sectionSecondPanel, BoxLayout.PAGE_AXIS));
 
         createListDisplay();
 
-        appetizersPanel.add(appetizersSecondPanel);
+        sectionPanel.add(sectionSecondPanel);
     }
 
     /*
-     * EFFECTS: creates list display of menu appetizers
+     * EFFECTS: creates list display of menu section
      */
-    private void createListDisplay() {
+    protected void createListDisplay() {
         splitPane = new JSplitPane();
         splitPane.setPreferredSize(new Dimension(250, 75));
         splitPane.setDividerLocation(0.65);
@@ -164,31 +167,32 @@ public class MenuTab extends Tab {
         createListPanel();
         createPricePanel();
         
-        appetizersSecondPanel.add(splitPane);
+        sectionSecondPanel.add(splitPane);
     }
 
     /*
-     * EFFECTS: adds list of appetizers to split pane
+     * EFFECTS: adds menu list to split pane
      */
-    private void createListPanel() {
+    protected void createListPanel() {
         model = new DefaultListModel<>();
         list = new JList<>();
         list.setModel(model);
         list.setVisibleRowCount(-1);
 
-        for (MenuItem item : database.getMenu().getAppetizers()) {
-            if (!model.contains(item)) {
-                model.addElement(item);
-            }
-        }
+        // TO-DO: make abstract function per section of menu tab
+        // for (MenuItem item : database.getMenu().getAppetizers()) {
+        //     if (!model.contains(item)) {
+        //         model.addElement(item);
+        //     }
+        // }
 
-        splitPane.setLeftComponent(new JScrollPane(list));
+        // splitPane.setLeftComponent(new JScrollPane(list));
     }
 
     /*
-     * EFFECTS: adds display of appetizer prices to split pane
+     * EFFECTS: adds display of menu item prices to split pane
      */
-    private void createPricePanel() {
+    protected void createPricePanel() {
         JPanel pricePanel = new JPanel();
         JLabel priceDisplay = new JLabel();
 
@@ -207,33 +211,36 @@ public class MenuTab extends Tab {
 
     /*
      * EFFECTS: takes input from text fields and
-     *          uses these to create new appetizer in database
+     *          uses these to create new menu item in database
      */
-    public void createNewAppetizer() {
-        int price;
-        MenuItem newItem = null;
+    protected void createNewMenuItem() {
+        newItem = null;
 
         try {
-            price = Integer.parseInt(newAppetizerPrice.getText());
-            newItem = new MenuItem(newAppetizerName.getText(), price);
+            price = Integer.parseInt(newMenuItemPrice.getText());
+            newItem = new MenuItem(newMenuItemName.getText(), price);
         } catch (NumberFormatException e) {
             price = -1;
         }
 
-        if (!database.getMenu().getAppetizers().contains(newItem)) {
-            if (price >= 0) {
-                database.getMenu().addItem(database.getMenu().getAppetizers(), newItem);
-            }
-        }
+        // TO-DO: make abstract function per section of menu tab
+        // if (!database.getMenu().getAppetizers().contains(newItem)) {
+        //     if (price >= 0) {
+        //         database.getMenu().addItem(database.getMenu().getAppetizers(), newItem);
+        //     }
+        // }
     }
 
     /*
-     * EFFECTS: deletes current selection from list of appetizers in the database
+     * EFFECTS: deletes current selection from appropriate list
+     *          of menu items in the database
      */
-    public void deleteMenuItem() {
-        database.getMenu().removeItem(database.getMenu().getAppetizers(), list.getSelectedValue());
-        model.removeElementAt(list.getSelectedIndex());
-    }
+    abstract void deleteMenuItem();
+    // {
+    //     // TO-DO: make abstract function per section of menu tab
+    //     // database.getMenu().removeItem(database.getMenu().getAppetizers(), list.getSelectedValue());
+    //     // model.removeElementAt(list.getSelectedIndex());
+    // }
 
     /*
      * EFFECTS: assigns functions per button
@@ -245,7 +252,7 @@ public class MenuTab extends Tab {
             splitPane.setDividerLocation(0.65);
             createPricePanel();
         } else if (e.getActionCommand().equals("Save")) {
-            createNewAppetizer();
+            createNewMenuItem();
         } else if (e.getActionCommand().equals("Delete")) {
             deleteMenuItem();
         }
