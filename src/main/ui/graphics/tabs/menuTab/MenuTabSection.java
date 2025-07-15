@@ -1,4 +1,4 @@
-package ui.graphics.tabs;
+package ui.graphics.tabs.menuTab;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import model.MenuItem;
 import ui.RestaurantDatabase;
+import ui.graphics.tabs.Tab;
 
 public abstract class MenuTabSection extends Tab {
     protected JPanel sectionPanel;

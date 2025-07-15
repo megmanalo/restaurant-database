@@ -1,4 +1,4 @@
-package ui.graphics.tabs;
+package ui.graphics.tabs.menuTab;
 
 import java.awt.event.ActionEvent;
 
@@ -6,6 +6,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import ui.RestaurantDatabase;
+import ui.graphics.tabs.Tab;
 
 public class MenuTab extends Tab {
     private JPanel overall;
@@ -18,6 +19,9 @@ public class MenuTab extends Tab {
 
         overall.add(new AppetizersMenuTabSection(controller));
         overall.add(new MainsMenuTabSection(controller));
+        overall.add(new SidesMenuTabSection(controller));
+        overall.add(new DrinksMenuTabSection(controller));
+        overall.add(new DessertsMenuTabSection(controller));
 
         add(overall);
     }

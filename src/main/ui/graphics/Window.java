@@ -10,6 +10,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import ui.graphics.tabs.*;
+import ui.graphics.tabs.menuTab.MenuTab;
 import ui.RestaurantDatabase;
 
 // Code below is modelled after `DrawingEditor` class in `tools` package of SimpleDrawingPlayer-Complete;

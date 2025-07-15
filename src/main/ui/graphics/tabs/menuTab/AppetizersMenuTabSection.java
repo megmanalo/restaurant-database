@@ -1,4 +1,4 @@
-package ui.graphics.tabs;
+package ui.graphics.tabs.menuTab;
 
 import javax.swing.*;
 

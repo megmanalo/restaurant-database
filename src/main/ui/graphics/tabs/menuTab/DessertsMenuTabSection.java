@@ -1,19 +1,19 @@
-package ui.graphics.tabs;
+package ui.graphics.tabs.menuTab;
 
 import javax.swing.JScrollPane;
 
 import model.MenuItem;
 import ui.RestaurantDatabase;
 
-public class MainsMenuTabSection extends MenuTabSection {
-
+public class DessertsMenuTabSection extends MenuTabSection {
+    
     /*
-     * Creates the mains section of the menu tab
+     * Creates the desserts section of the menu tab
      */
-    public MainsMenuTabSection(RestaurantDatabase controller) {
+    public DessertsMenuTabSection(RestaurantDatabase controller) {
         super(controller);
         
-        createFirstComponent("MAINS", "Main");
+        createFirstComponent("DESSERTS", "Dessert");
         createSecondComponent();
 
         add(sectionPanel);
@@ -26,7 +26,7 @@ public class MainsMenuTabSection extends MenuTabSection {
         super.createListPanel();
 
         // TO-DO: make abstract function per section of menu tab
-        for (MenuItem item : database.getMenu().getMains()) {
+        for (MenuItem item : database.getMenu().getDesserts()) {
             if (!model.contains(item)) {
                 model.addElement(item);
             }
@@ -43,9 +43,9 @@ public class MainsMenuTabSection extends MenuTabSection {
         super.createNewMenuItem();
 
         // TO-DO: make abstract function per section of menu tab
-        if (!database.getMenu().getMains().contains(newItem)) {
+        if (!database.getMenu().getDesserts().contains(newItem)) {
             if (price >= 0) {
-                database.getMenu().addItem(database.getMenu().getMains(), newItem);
+                database.getMenu().addItem(database.getMenu().getDesserts(), newItem);
             }
         }
     }
@@ -56,7 +56,7 @@ public class MainsMenuTabSection extends MenuTabSection {
      */
     public void deleteMenuItem() {
         // TO-DO: make abstract function per section of menu tab
-        database.getMenu().removeItem(database.getMenu().getMains(), list.getSelectedValue());
+        database.getMenu().removeItem(database.getMenu().getDesserts(), list.getSelectedValue());
         model.removeElementAt(list.getSelectedIndex());
     }
 }
