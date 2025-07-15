@@ -11,7 +11,7 @@ import java.awt.*;
 // - `SmartHomeUI` class in `ui` package of SmartHome;
 // - various classes in `ui` package of AlarmSystem;
 public abstract class Tab extends JPanel implements ActionListener {
-    private final RestaurantDatabase controller;
+    protected final RestaurantDatabase controller;
     protected JLabel menu;
     protected RestaurantDatabase database;
     protected JTabbedPane sidebar;

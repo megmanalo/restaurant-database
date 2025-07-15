@@ -59,14 +59,14 @@ public abstract class MenuTabSection extends Tab {
         JLabel sectionLabel = new JLabel(label);
         sectionLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JButton refreshBtn = new JButton("Refresh");
-        refreshBtn.setActionCommand("Load");
-        refreshBtn.addActionListener(this);
-        refreshBtn.setLayout(new BoxLayout(refreshBtn, BoxLayout.LINE_AXIS));
-        refreshBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
+        // JButton refreshBtn = new JButton("Refresh");
+        // refreshBtn.setActionCommand("Load");
+        // refreshBtn.addActionListener(this);
+        // refreshBtn.setLayout(new BoxLayout(refreshBtn, BoxLayout.LINE_AXIS));
+        // refreshBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         labelPanel.add(sectionLabel);
-        labelPanel.add(refreshBtn);
+        // labelPanel.add(refreshBtn);
 
         sectionFirstPanel.add(labelPanel);
     }
