@@ -60,7 +60,7 @@ public class Window extends JFrame implements WindowListener {
      */
     private void loadTabs() {
         JPanel homeTab = new HomeTab(database);
-        JPanel menuTab = new AppetizersMenuTabSection(database);
+        JPanel menuTab = new MenuTab(database);
         JPanel posTab = new PointOfSaleTab(database);
 
         sidebar.add(homeTab, HOME_TAB_INDEX);
