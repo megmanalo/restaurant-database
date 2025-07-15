@@ -5,12 +5,12 @@ import javax.swing.*;
 import model.MenuItem;
 import ui.RestaurantDatabase;
 
-public class AppetizersMenuTab extends MenuTab {
+public class AppetizersMenuTabSection extends MenuTabSection {
 
     /*
      * Creates the menu tab of the application
      */
-    public AppetizersMenuTab(RestaurantDatabase controller) {
+    public AppetizersMenuTabSection(RestaurantDatabase controller) {
         super(controller);
 
         createFirstComponent("APPETIZERS", "Appetizer");

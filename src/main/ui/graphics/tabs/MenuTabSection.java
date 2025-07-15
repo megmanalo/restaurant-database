@@ -9,7 +9,7 @@ import javax.swing.*;
 import model.MenuItem;
 import ui.RestaurantDatabase;
 
-public abstract class MenuTab extends Tab {
+public abstract class MenuTabSection extends Tab {
     protected JPanel sectionPanel;
     protected JPanel sectionFirstPanel;
     protected JPanel interactivePanel;
@@ -25,7 +25,7 @@ public abstract class MenuTab extends Tab {
     /*
      * Creates the menu tab of the application
      */
-    public MenuTab(RestaurantDatabase controller) {
+    public MenuTabSection(RestaurantDatabase controller) {
         super(controller);
 
         sectionPanel = new JPanel();
