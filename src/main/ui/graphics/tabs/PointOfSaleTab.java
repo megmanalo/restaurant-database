@@ -1,10 +1,8 @@
 package ui.graphics.tabs;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import ui.RestaurantDatabase;
 
