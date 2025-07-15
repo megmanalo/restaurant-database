@@ -17,6 +17,7 @@ public class MenuTab extends Tab {
         overall.setLayout(new BoxLayout(overall, BoxLayout.PAGE_AXIS));
 
         overall.add(new AppetizersMenuTabSection(controller));
+        overall.add(new MainsMenuTabSection(controller));
 
         add(overall);
     }

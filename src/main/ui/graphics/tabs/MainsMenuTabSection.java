@@ -1,19 +1,19 @@
 package ui.graphics.tabs;
 
-import javax.swing.*;
+import javax.swing.JScrollPane;
 
 import model.MenuItem;
 import ui.RestaurantDatabase;
 
-public class AppetizersMenuTabSection extends MenuTabSection {
+public class MainsMenuTabSection extends MenuTabSection {
 
     /*
-     * Creates the appetizer section of the menu tab
+     * Creates the mains section of the menu tab
      */
-    public AppetizersMenuTabSection(RestaurantDatabase controller) {
+    public MainsMenuTabSection(RestaurantDatabase controller) {
         super(controller);
-
-        createFirstComponent("APPETIZERS", "Appetizer");
+        
+        createFirstComponent("MAINS", "Main");
         createSecondComponent();
 
         add(sectionPanel);
@@ -26,7 +26,7 @@ public class AppetizersMenuTabSection extends MenuTabSection {
         super.createListPanel();
 
         // TO-DO: make abstract function per section of menu tab
-        for (MenuItem item : database.getMenu().getAppetizers()) {
+        for (MenuItem item : database.getMenu().getMains()) {
             if (!model.contains(item)) {
                 model.addElement(item);
             }
@@ -43,9 +43,9 @@ public class AppetizersMenuTabSection extends MenuTabSection {
         super.createNewMenuItem();
 
         // TO-DO: make abstract function per section of menu tab
-        if (!database.getMenu().getAppetizers().contains(newItem)) {
+        if (!database.getMenu().getMains().contains(newItem)) {
             if (price >= 0) {
-                database.getMenu().addItem(database.getMenu().getAppetizers(), newItem);
+                database.getMenu().addItem(database.getMenu().getMains(), newItem);
             }
         }
     }
@@ -56,7 +56,7 @@ public class AppetizersMenuTabSection extends MenuTabSection {
      */
     public void deleteMenuItem() {
         // TO-DO: make abstract function per section of menu tab
-        database.getMenu().removeItem(database.getMenu().getAppetizers(), list.getSelectedValue());
+        database.getMenu().removeItem(database.getMenu().getMains(), list.getSelectedValue());
         model.removeElementAt(list.getSelectedIndex());
     }
 }
