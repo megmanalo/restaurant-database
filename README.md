@@ -4,20 +4,20 @@
 
 ### Project Description
 
-**What will the application do?**
+**WHAT**
 
-This application is meant to function as a working *Point of Sale System* with features specific for a restaurant:
-- food items and prices;
-- number of people seated; and
+This application is meant to function as a working *Point of Sale System*, featuring restaurant-oriented specifications such as:
+- food items + prices;
+- table capcity; and
 - tip percentage (among others)
 
 It would be used to manage customer orders and payment summaries, and log transactions for the restaurant overall.
 
-**Who will use it?**
+**WHO**
 
 The user of this system will be the restaurant itself, keeping track of table orders and total bills for final sales. 
 
-**Why is this project of interest to me?**
+**WHY**
 
 As the daughter of two entrepreneurs, I understand the need for an efficient and functioning system for tracking sales. This makes final business computations much more easily outlined and accomplished. Moreover, I acknowledge the fast-paced and oftentimes hectic environments of restaurants that are best managed by systematic organization.
 
